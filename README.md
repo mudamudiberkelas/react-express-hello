@@ -5,3 +5,4 @@ create-react-app client
 npx create-react-app client
 
 
+docker composer up --build
