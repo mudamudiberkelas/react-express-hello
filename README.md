@@ -16,3 +16,4 @@ docker-compose -f docker-compose-dev.yml up --build
 docker-compose -f docker-compose-dev.yml down
 
 # CREATE SECRET
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=1323
