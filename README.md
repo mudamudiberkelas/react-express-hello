@@ -17,3 +17,23 @@ docker-compose -f docker-compose-dev.yml down
 
 # CREATE SECRET
 kubectl create secret generic pgpassword --from-literal PGPASSWORD=1323
+
+# GKE 
+  - gcloud config set project steady-petal-307322
+  - gcloud config set compute/zone us-central1-c
+  - gcloud container clusters get-credentials multi-cluster
+
+# HELM
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+https://kubernetes.github.io/ingress-nginx/deploy/#local-development-clusters
+
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install my-release ingress-nginx/ingress-nginx
+
+
+# UPGRADE CLUSTER
+gcloud container clusters upgrade  YOUR_CLUSTER_NAME --master --cluster-version 1.16
